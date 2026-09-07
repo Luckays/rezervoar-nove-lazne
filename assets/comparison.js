@@ -3,7 +3,7 @@
   const artboard = document.getElementById('drawing-artboard');
   const current = document.getElementById('current-layer');
   const slider = document.getElementById('comparison-range');
-  const variantSelect = document.getElementById('variant-select');
+  const variantButtons = [...document.querySelectorAll('[data-variant]')];
   const lens = document.getElementById('magnifier');
   const lensButton = document.getElementById('lens-button');
   const lensStatus = document.getElementById('lens-status');
@@ -61,12 +61,18 @@
   }
 
   function setVariant(variant) {
-    const source = variants[variant] || variants.light;
+    const selected = variants[variant] ? variant : 'light';
+    const source = variants[selected];
     sources.current = source;
     current.src = source;
-    current.alt = variant === 'dark'
+    current.alt = selected === 'dark'
       ? 'Současný řez a půdorys z mračna bodů na tmavém pozadí'
       : 'Současný řez a půdorys z mračna bodů na bílém pozadí';
+    variantButtons.forEach((button) => {
+      const active = button.dataset.variant === selected;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
     if (lensMode === 'current') lens.style.backgroundImage = `url("${source}")`;
   }
 
@@ -87,7 +93,7 @@
 
   modeButtons.forEach((button) => button.addEventListener('click', () => setMode(button.dataset.mode)));
   slider.addEventListener('input', applyComparison);
-  variantSelect.addEventListener('change', () => setVariant(variantSelect.value));
+  variantButtons.forEach((button) => button.addEventListener('click', () => setVariant(button.dataset.variant)));
   lensButton.addEventListener('click', cycleLens);
   artboard.addEventListener('click', cycleLens);
   artboard.addEventListener('pointermove', (event) => {
@@ -110,6 +116,6 @@
   });
 
   applyComparison();
-  setVariant(variantSelect.value);
+  setVariant('light');
   setLensMode('current');
 })();
