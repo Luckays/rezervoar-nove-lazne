@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Interaktivní porovnání historického projektu a současného řezu rezervoáru minerální vody v Mariánských Lázních.">
   <title>Rezervoár minerální vody Nové Lázně | Porovnání</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
 </head>
 <body>
   <header class="site-header">
@@ -36,9 +36,9 @@
           <button class="active" type="button" data-mode="fade" aria-pressed="true">Prolínání</button>
           <button type="button" data-mode="wipe" aria-pressed="false">Ořez</button>
         </div>
-        <div class="variant-switch" role="group" aria-label="Varianta současného podkladu">
-          <button class="active" type="button" data-variant="light" aria-pressed="true"><span aria-hidden="true">☀</span> Světlá</button>
-          <button type="button" data-variant="dark" aria-pressed="false"><span aria-hidden="true">◐</span> Tmavá</button>
+        <div class="segmented variant-switch" role="group" aria-label="Varianta současného podkladu">
+          <button class="active" type="button" data-variant="light" aria-pressed="true">Světlá</button>
+          <button type="button" data-variant="dark" aria-pressed="false">Tmavá</button>
         </div>
         <label class="range-control" for="comparison-range">
           <span>Historie</span>
@@ -72,6 +72,6 @@
     <span>Rezervoár minerální vody Nové Lázně</span>
     <span>Digitální dokumentace</span>
   </footer>
-  <script src="assets/comparison.js"></script>
+  <script src="assets/comparison.js?v=4"></script>
 </body>
 </html>

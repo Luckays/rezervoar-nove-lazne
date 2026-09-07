@@ -10,8 +10,8 @@
   const fullscreenButton = document.getElementById('comparison-fullscreen');
   const modeButtons = [...document.querySelectorAll('[data-mode]')];
   const variants = {
-    light: 'assets/images/soucasny-rez-white.png',
-    dark: 'assets/images/soucasny-rez.png'
+    light: 'assets/images/soucasny-rez-white.png?v=2',
+    dark: 'assets/images/soucasny-rez.png?v=2'
   };
   const sources = {
     current: variants.light,
