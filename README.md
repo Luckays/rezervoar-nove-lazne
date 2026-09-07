@@ -6,7 +6,7 @@ Statická webová prezentace historického plánu a současné digitální dokum
 
 - `index.html` – porovnání historického podkladu a současného řezu
 - `mracno.html` – interaktivní Potree prohlížeč mračna bodů
-- `assets/images` – oba zarovnané 2D podklady (5502 × 3071 px)
+- `assets/images` – zarovnané 2D podklady (5502 × 3071 px), včetně bílé varianty současného řezu
 - `pointclouds/rezervoar` – Potree 2.0 data, 1 591 209 bodů
 - `vendor` – lokální sestavení Potree a potřebné knihovny
 

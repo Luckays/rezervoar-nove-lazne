@@ -36,6 +36,13 @@
           <button class="active" type="button" data-mode="fade" aria-pressed="true">Prolínání</button>
           <button type="button" data-mode="wipe" aria-pressed="false">Ořez</button>
         </div>
+        <label class="variant-control" for="variant-select">
+          <span>Současný podklad</span>
+          <select id="variant-select">
+            <option value="light">Světlá varianta</option>
+            <option value="dark">Tmavá varianta</option>
+          </select>
+        </label>
         <label class="range-control" for="comparison-range">
           <span>Historie</span>
           <input id="comparison-range" type="range" min="0" max="100" value="50">
@@ -50,7 +57,7 @@
       <div class="drawing-stage" id="drawing-stage">
         <div class="drawing-artboard" id="drawing-artboard">
           <img class="drawing-layer historical-layer" src="assets/images/historicky-podklad.png" alt="Historický plán rezervoáru minerální vody">
-          <img class="drawing-layer current-layer" id="current-layer" src="assets/images/soucasny-rez.png" alt="Současný řez z mračna bodů">
+          <img class="drawing-layer current-layer" id="current-layer" src="assets/images/soucasny-rez-white.png" alt="Současný řez a půdorys z mračna bodů na bílém pozadí">
           <div class="magnifier" id="magnifier" aria-hidden="true"></div>
         </div>
         <div class="stage-hint" id="stage-hint">Pohybem odhalíte druhý podklad · kliknutím přepnete průhled</div>

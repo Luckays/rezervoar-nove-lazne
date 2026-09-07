@@ -3,13 +3,18 @@
   const artboard = document.getElementById('drawing-artboard');
   const current = document.getElementById('current-layer');
   const slider = document.getElementById('comparison-range');
+  const variantSelect = document.getElementById('variant-select');
   const lens = document.getElementById('magnifier');
   const lensButton = document.getElementById('lens-button');
   const lensStatus = document.getElementById('lens-status');
   const fullscreenButton = document.getElementById('comparison-fullscreen');
   const modeButtons = [...document.querySelectorAll('[data-mode]')];
+  const variants = {
+    light: 'assets/images/soucasny-rez-white.png',
+    dark: 'assets/images/soucasny-rez.png'
+  };
   const sources = {
-    current: 'assets/images/soucasny-rez.png',
+    current: variants.light,
     history: 'assets/images/historicky-podklad.png'
   };
 
@@ -55,6 +60,16 @@
     setLensMode(lensMode === 'current' ? 'history' : lensMode === 'history' ? 'off' : 'current');
   }
 
+  function setVariant(variant) {
+    const source = variants[variant] || variants.light;
+    sources.current = source;
+    current.src = source;
+    current.alt = variant === 'dark'
+      ? 'Současný řez a půdorys z mračna bodů na tmavém pozadí'
+      : 'Současný řez a půdorys z mračna bodů na bílém pozadí';
+    if (lensMode === 'current') lens.style.backgroundImage = `url("${source}")`;
+  }
+
   function positionLens(event) {
     if (lensMode === 'off') return;
     const rect = artboard.getBoundingClientRect();
@@ -72,6 +87,7 @@
 
   modeButtons.forEach((button) => button.addEventListener('click', () => setMode(button.dataset.mode)));
   slider.addEventListener('input', applyComparison);
+  variantSelect.addEventListener('change', () => setVariant(variantSelect.value));
   lensButton.addEventListener('click', cycleLens);
   artboard.addEventListener('click', cycleLens);
   artboard.addEventListener('pointermove', (event) => {
@@ -94,5 +110,6 @@
   });
 
   applyComparison();
+  setVariant(variantSelect.value);
   setLensMode('current');
 })();
