@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="Interaktivní 3D mračno bodů rezervoáru minerální vody v Mariánských Lázních.">
+  <title>Rezervoár minerální vody Nové Lázně | Mračno bodů</title>
+  <link rel="stylesheet" href="vendor/potree/potree.css">
+  <link rel="stylesheet" href="vendor/libs/jquery-ui/jquery-ui.min.css">
+  <link rel="stylesheet" href="vendor/libs/openlayers3/ol.css">
+  <link rel="stylesheet" href="vendor/libs/spectrum/spectrum.css">
+  <link rel="stylesheet" href="vendor/libs/jstree/themes/mixed/style.css">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="cloud-body">
+  <header class="site-header cloud-header">
+    <a class="brand" href="index.html" aria-label="Rezervoár minerální vody – úvod">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 42"><path d="M8 32V14h26v18M5 32h32M12 14V9h18v5M14 21h14M17 27h8"/></svg>
+      </span>
+      <span><strong>Rezervoár minerální vody</strong><small>Nové Lázně · Mariánské Lázně</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Hlavní navigace">
+      <a href="index.html">Porovnání plánů</a>
+      <a class="active" href="mracno.html" aria-current="page">Mračno bodů</a>
+    </nav>
+  </header>
+
+  <main class="cloud-main">
+    <section class="cloud-shell" id="cloud-shell" aria-label="3D prohlížeč mračna bodů">
+      <div class="potree_container">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"></div>
+      </div>
+
+      <div class="cloud-title-card">
+        <p class="eyebrow">3D dokumentace</p>
+        <h1>Mračno bodů rezervoáru</h1>
+        <p id="cloud-status">Načítám 1 591 209 bodů…</p>
+      </div>
+
+      <div class="cloud-controls" aria-label="Ovládání 3D prohlížeče">
+        <button id="fit-cloud" type="button">Zobrazit celé</button>
+        <label for="point-size">Velikost bodu
+          <input id="point-size" type="range" min="0.4" max="3" step="0.1" value="0.8">
+        </label>
+        <button id="toggle-sidebar" type="button" disabled>Nástroje</button>
+        <button class="icon-button" id="cloud-fullscreen" type="button" title="Celá obrazovka" aria-label="Zobrazit přes celou obrazovku">⛶</button>
+      </div>
+
+      <div class="cloud-help">
+        <span><b>Levé tlačítko</b> otáčení</span>
+        <span><b>Pravé tlačítko</b> posun</span>
+        <span><b>Kolečko</b> přiblížení</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="vendor/libs/jquery/jquery-3.1.1.min.js"></script>
+  <script src="vendor/libs/spectrum/spectrum.js"></script>
+  <script src="vendor/libs/jquery-ui/jquery-ui.min.js"></script>
+  <script src="vendor/libs/other/BinaryHeap.js"></script>
+  <script src="vendor/libs/tween/tween.min.js"></script>
+  <script src="vendor/libs/d3/d3.js"></script>
+  <script src="vendor/libs/proj4/proj4.js"></script>
+  <script src="vendor/libs/openlayers3/ol.js"></script>
+  <script src="vendor/libs/i18next/i18next.js"></script>
+  <script src="vendor/libs/jstree/jstree.js"></script>
+  <script src="vendor/potree/potree.js"></script>
+  <script src="vendor/libs/plasio/js/laslaz.js"></script>
+  <script src="assets/cloud.js"></script>
+</body>
+</html>
