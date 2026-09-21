@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore an interactive 3D point cloud of the mineral water reservoir at Nové Lázně, Mariánské Lázně.">
   <title>Nové Lázně Mineral Water Reservoir | Point cloud</title>
   <link rel="stylesheet" href="vendor/potree/potree.css">
@@ -10,23 +10,27 @@
   <link rel="stylesheet" href="vendor/libs/openlayers3/ol.css">
   <link rel="stylesheet" href="vendor/libs/spectrum/spectrum.css">
   <link rel="stylesheet" href="vendor/libs/jstree/themes/mixed/style.css">
-  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=6">
 </head>
 <body class="cloud-body">
   <header class="site-header cloud-header">
-    <a class="brand" href="index.html" aria-label="Mineral Water Reservoir – home">
+    <a class="brand" href="index.html?v=6" aria-label="Mineral Water Reservoir – home">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 42 42"><path d="M8 32V14h26v18M5 32h32M12 14V9h18v5M14 21h14M17 27h8"/></svg>
       </span>
       <span><strong>Mineral Water Reservoir</strong><small>Nové Lázně · Mariánské Lázně</small></span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Drawing comparison</a>
-      <a class="active" href="mracno.html" aria-current="page">Point cloud</a>
+      <a href="index.html?v=6"><span class="nav-index">01</span> Drawing comparison</a>
+      <a class="active" href="mracno.html?v=6" aria-current="page"><span class="nav-index">02</span> Point cloud</a>
     </nav>
   </header>
 
   <main class="cloud-main">
+    <section class="cloud-intro" aria-labelledby="cloud-title">
+      <div><p class="eyebrow">02 / Spatial documentation</p><h1 id="cloud-title">A new dimension <em>of history.</em></h1></div>
+      <p class="lead">Explore the reservoir in 3D.<br>Measure distances, create profiles and inspect sections.</p>
+    </section>
     <section class="cloud-shell" id="cloud-shell" aria-label="3D point cloud viewer">
       <div class="potree_container">
         <div id="potree_render_area"></div>
@@ -34,8 +38,8 @@
       </div>
 
       <div class="cloud-title-card">
-        <p class="eyebrow">Spatial archive · 3D survey</p>
-        <h1>The reservoir in 3D</h1>
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live point cloud</p>
+        <h2>Mineral Water Reservoir</h2>
         <p id="cloud-status">Loading 1,591,209 points…</p>
       </div>
 
@@ -44,7 +48,7 @@
         <label for="point-size">Point size
           <input id="point-size" type="range" min="0.4" max="3" step="0.1" value="0.8">
         </label>
-        <button id="toggle-sidebar" type="button" aria-controls="potree_sidebar_container" aria-expanded="false" disabled>Tools</button>
+        <button id="toggle-sidebar" type="button" aria-controls="potree_sidebar_container" aria-expanded="false" disabled>Survey tools</button>
         <button class="icon-button" id="cloud-fullscreen" type="button" title="Full screen" aria-label="Enter full screen">⛶</button>
       </div>
 
@@ -68,6 +72,6 @@
   <script src="vendor/libs/jstree/jstree.js"></script>
   <script src="vendor/potree/potree.js"></script>
   <script src="vendor/libs/plasio/js/laslaz.js"></script>
-  <script src="assets/cloud.js?v=5"></script>
+  <script src="assets/cloud.js?v=6"></script>
 </body>
 </html>
