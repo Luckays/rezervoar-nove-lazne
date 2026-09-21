@@ -23,7 +23,7 @@
     sidebarButton.disabled = false;
   });
 
-  Potree.loadPointCloud('pointclouds/rezervoar/metadata.json', 'Rezervoár minerální vody', (event) => {
+  Potree.loadPointCloud('pointclouds/rezervoar/metadata.json', 'Mineral Water Reservoir', (event) => {
     pointcloud = event.pointcloud;
     viewer.scene.addPointCloud(pointcloud);
 
@@ -40,12 +40,13 @@
     };
     requestAnimationFrame(fitLoadedCloud);
     window.setTimeout(fitLoadedCloud, 500);
-    status.textContent = '1 591 209 barevných bodů · interaktivní zobrazení';
+    status.textContent = '1,591,209 colour points · interactive survey';
   });
 
   fitButton.addEventListener('click', () => viewer.fitToScreen(0.85));
   sidebarButton.addEventListener('click', () => {
     shell.classList.toggle('sidebar-open');
+    sidebarButton.setAttribute('aria-expanded', String(shell.classList.contains('sidebar-open')));
     viewer.toggleSidebar();
   });
   sizeSlider.addEventListener('input', () => {
@@ -57,10 +58,11 @@
       if (document.fullscreenElement) await document.exitFullscreen();
       else await shell.requestFullscreen();
     } catch (error) {
-      console.warn('Fullscreen není v tomto prohlížeči dostupný.', error);
+      console.warn('Full screen is not available in this browser.', error);
     }
   });
   document.addEventListener('fullscreenchange', () => {
     fullscreenButton.textContent = document.fullscreenElement ? '×' : '⛶';
+    fullscreenButton.setAttribute('aria-label', document.fullscreenElement ? 'Exit full screen' : 'Enter full screen');
   });
 })();

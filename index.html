@@ -1,77 +1,77 @@
 <!doctype html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Interaktivní porovnání historického projektu a současného řezu rezervoáru minerální vody v Mariánských Lázních.">
-  <title>Rezervoár minerální vody Nové Lázně | Porovnání</title>
-  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <meta name="description" content="Explore the historic drawings and present-day survey of the mineral water reservoir at Nové Lázně, Mariánské Lázně.">
+  <title>Nové Lázně Mineral Water Reservoir | Comparison</title>
+  <link rel="stylesheet" href="assets/styles.css?v=5">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Rezervoár minerální vody – úvod">
+    <a class="brand" href="index.html" aria-label="Mineral Water Reservoir – home">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 42 42"><path d="M8 32V14h26v18M5 32h32M12 14V9h18v5M14 21h14M17 27h8"/></svg>
       </span>
-      <span><strong>Rezervoár minerální vody</strong><small>Nové Lázně · Mariánské Lázně</small></span>
+      <span><strong>Mineral Water Reservoir</strong><small>Nové Lázně · Mariánské Lázně</small></span>
     </a>
-    <nav class="site-nav" aria-label="Hlavní navigace">
-      <a class="active" href="index.html" aria-current="page">Porovnání plánů</a>
-      <a href="mracno.html">Mračno bodů</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="active" href="index.html" aria-current="page">Drawing comparison</a>
+      <a href="mracno.html">Point cloud</a>
     </nav>
   </header>
 
   <main class="page comparison-page">
     <section class="page-intro">
       <div>
-        <p class="eyebrow">Dokumentace objektu</p>
-        <h1>Historický projekt a současný řez</h1>
+        <p class="eyebrow">Built heritage · Digital survey</p>
+        <h1>Historic plans.<br>Present-day detail.</h1>
       </div>
-      <p class="lead">Plán rezervoáru pro Ferdinandův a Rudolfův pramen porovnaný se současným zaměřením.</p>
+      <p class="lead">Explore the reservoir designed for the Ferdinand and Rudolf springs. Compare the original drawings with a present-day survey.</p>
     </section>
 
-    <section class="viewer-card" aria-label="Porovnání výkresů">
+    <section class="viewer-card" aria-label="Drawing comparison">
       <div class="viewer-toolbar">
-        <div class="segmented" role="group" aria-label="Způsob porovnání">
-          <button class="active" type="button" data-mode="fade" aria-pressed="true">Prolínání</button>
-          <button type="button" data-mode="wipe" aria-pressed="false">Ořez</button>
+        <div class="segmented" role="group" aria-label="Comparison mode">
+          <button class="active" type="button" data-mode="fade" aria-pressed="true">Blend</button>
+          <button type="button" data-mode="wipe" aria-pressed="false">Wipe</button>
         </div>
-        <div class="segmented variant-switch" role="group" aria-label="Varianta současného podkladu">
-          <button class="active" type="button" data-variant="light" aria-pressed="true">Světlá</button>
-          <button type="button" data-variant="dark" aria-pressed="false">Tmavá</button>
+        <div class="segmented variant-switch" role="group" aria-label="Survey background">
+          <button class="active" type="button" data-variant="light" aria-pressed="true">Light</button>
+          <button type="button" data-variant="dark" aria-pressed="false">Dark</button>
         </div>
         <label class="range-control" for="comparison-range">
-          <span>Historie</span>
+          <span>Historic</span>
           <input id="comparison-range" type="range" min="0" max="100" value="50">
-          <span>Současnost</span>
+          <span>Survey</span>
         </label>
         <div class="toolbar-actions">
-          <button class="icon-button" id="lens-button" type="button" title="Přepnout obsah porovnávacího průhledu" aria-label="Průhled: současnost">◉</button>
-          <button class="icon-button" id="comparison-fullscreen" type="button" title="Celá obrazovka" aria-label="Zobrazit přes celou obrazovku">⛶</button>
+          <button class="icon-button" id="lens-button" type="button" title="Cycle reveal lens: survey, historic, off" aria-label="Lens: survey">◉</button>
+          <button class="icon-button" id="comparison-fullscreen" type="button" title="Full screen" aria-label="Enter full screen">⛶</button>
         </div>
       </div>
 
       <div class="drawing-stage" id="drawing-stage">
         <div class="drawing-artboard" id="drawing-artboard">
-          <img class="drawing-layer historical-layer" src="assets/images/historicky-podklad.png" alt="Historický plán rezervoáru minerální vody">
-          <img class="drawing-layer current-layer" id="current-layer" src="assets/images/soucasny-rez-white.png" alt="Současný řez a půdorys z mračna bodů na bílém pozadí">
+          <img class="drawing-layer historical-layer" src="assets/images/historicky-podklad.png" alt="Historic drawing of the mineral water reservoir">
+          <img class="drawing-layer current-layer" id="current-layer" src="assets/images/soucasny-rez-white.png" alt="Present-day section and floor plan from the point cloud on a white background">
           <div class="magnifier" id="magnifier" aria-hidden="true"></div>
         </div>
-        <div class="stage-hint" id="stage-hint">Pohybem odhalíte druhý podklad · kliknutím přepnete průhled</div>
+        <div class="stage-hint" id="stage-hint">Move to reveal a layer · click to switch the lens</div>
       </div>
 
       <div class="viewer-meta">
-        <span><i class="legend-dot history"></i>Historický plán · měřítko 1:400</span>
-        <span><i class="legend-dot current"></i>Současný řez · mračno bodů</span>
-        <span id="lens-status">Průhled: současnost · měřítko 1:1</span>
+        <span><i class="legend-dot history"></i>Historic drawing · original scale 1:400</span>
+        <span><i class="legend-dot current"></i>Survey section · point cloud</span>
+        <span id="lens-status">Lens: survey · no magnification</span>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <span>Rezervoár minerální vody Nové Lázně</span>
-    <span>Digitální dokumentace</span>
+    <span>Nové Lázně Mineral Water Reservoir</span>
+    <span>Digital heritage documentation</span>
   </footer>
-  <script src="assets/comparison.js?v=4"></script>
+  <script src="assets/comparison.js?v=5"></script>
 </body>
 </html>

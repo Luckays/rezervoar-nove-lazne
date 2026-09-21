@@ -41,9 +41,9 @@
   function setLensMode(nextMode) {
     lensMode = nextMode;
     const labels = {
-      current: 'Průhled: současnost · měřítko 1:1',
-      history: 'Průhled: historie · měřítko 1:1',
-      off: 'Průhled: vypnutý'
+      current: 'Lens: survey · no magnification',
+      history: 'Lens: historic · no magnification',
+      off: 'Lens: off'
     };
     lensStatus.textContent = labels[lensMode];
     lensButton.setAttribute('aria-label', labels[lensMode]);
@@ -66,8 +66,8 @@
     sources.current = source;
     current.src = source;
     current.alt = selected === 'dark'
-      ? 'Současný řez a půdorys z mračna bodů na tmavém pozadí'
-      : 'Současný řez a půdorys z mračna bodů na bílém pozadí';
+      ? 'Present-day section and floor plan from the point cloud on a dark background'
+      : 'Present-day section and floor plan from the point cloud on a white background';
     variantButtons.forEach((button) => {
       const active = button.dataset.variant === selected;
       button.classList.toggle('active', active);
@@ -107,12 +107,12 @@
       if (document.fullscreenElement) await document.exitFullscreen();
       else await stage.requestFullscreen();
     } catch (error) {
-      console.warn('Fullscreen není v tomto prohlížeči dostupný.', error);
+      console.warn('Full screen is not available in this browser.', error);
     }
   });
   document.addEventListener('fullscreenchange', () => {
     fullscreenButton.textContent = document.fullscreenElement ? '×' : '⛶';
-    fullscreenButton.setAttribute('aria-label', document.fullscreenElement ? 'Ukončit celou obrazovku' : 'Zobrazit přes celou obrazovku');
+    fullscreenButton.setAttribute('aria-label', document.fullscreenElement ? 'Exit full screen' : 'Enter full screen');
   });
 
   applyComparison();
